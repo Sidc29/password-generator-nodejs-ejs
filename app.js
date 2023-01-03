@@ -35,6 +35,8 @@ app.all("*", (req, res) => {
     res.status(404).send("<h1>404 - Oops! you seem to be lost</h1>");
 })
 
-app.listen(3000, () => {
-    console.log("Server is up and running on port 3000");
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log(`Server is up and running on port ${PORT}`);
 })
