@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Genrator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="/" method="post">
+      <div class="container">
+        <h2 class="title">
+          Password <i class="fas fa-regular fa-key"></i> Generator
+        </h2>
+        <div class="result">
+          <div class="result__title field-title">Generated Password</div>
+          <div class="result__viewbox" id="result"><%= password %></div>
+          <button id="copy-btn" style="--x: 0; --y: 0">
+            <i class="far fa-copy"></i>
+          </button>
+        </div>
+        <div class="length range__slider" data-min="4" data-max="32">
+          <div class="length__title field-title" data-length="0">length:</div>
+          <input
+            id="slider"
+            name="length"
+            type="range"
+            min="4"
+            max="32"
+            value="16"
+          />
+        </div>
+
+        <div class="settings">
+          <span class="settings__title field-title"
+            >settings (select at least one setting)</span
+          >
+          <div class="setting">
+            <input type="checkbox" name="uppercase" id="uppercase" checked />
+            <label for="uppercase">Include Uppercase</label>
+          </div>
+          <div class="setting">
+            <input type="checkbox" name="lowercase" id="lowercase" checked />
+            <label for="lowercase">Include Lowercase</label>
+          </div>
+          <div class="setting">
+            <input type="checkbox" name="numbers" id="number" />
+            <label for="number">Include Numbers</label>
+          </div>
+          <div class="setting">
+            <input type="checkbox" name="symbols" id="symbol" />
+            <label for="symbol">Include Symbols</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn generate" id="generate">
+          Generate Password
+        </button>
+        <button onclick="copyFunc()" class="btn generate" id="copyPass">
+          Copy Password
+        </button>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
